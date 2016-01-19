@@ -33,7 +33,7 @@ tcpreplay come with a tool named **tcprewrite** to take care of that
 > Within a docker environment, IP and Mac addresses are allocated dynamically and it can be complicated to rewrite all capture files  with the right IP and MAc addresses.
 > In order to workaround that, it's possible to use a Broadcast IP and mac addresses
 
-Update IP and Mac addresses, you need to provide the previous dst IP
+Update IP and Mac addresses (you need to provide the previous dst IP)
 ```
 tcprewrite --infile=input.pcap --outfile=output.pcap --dstipmap=<previous dest IP>:172.17.255.255 --enet-dmac=01:00:05:11:00:06 --fixcsum
 ```
@@ -43,9 +43,9 @@ Update destination port
 tcprewrite --infile=input.pcap --outfile=output.pcap --portmap=50020:51020
 ```
 
-Send traffic out
+Send traffic out at 100pps
 ```
-tcpreplay --intf1=eth0 output.pcap
+tcpreplay --intf1=eth0  --pps=100 output.pcap
 ```
 
 You can find some good information on :
