@@ -20,6 +20,11 @@ Execute in CLI mode
 docker run --rm -t -v $(pwd):/data -i dgarros/tcpreplay /sbin/my_init -- bash -l
 ```
 
+Execute directly CLI mode with access to the host network
+```
+docker run --net host --rm -t -v $(pwd):/data -i dgarros/tcpreplay /sbin/my_init -- bash -l
+```
+
 Execute directly
 ```
 docker run --rm -t -v $(pwd):/data -i dgarros/tcpreplay /usr/bin/tcpreplay --intf1=eth0 output.pcap
